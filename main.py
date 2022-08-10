@@ -16,7 +16,7 @@ def main() -> None:
         yell_minerals(recognize_minerals())
         yell_gas(recognize_gas())
         yell_supply(recognize_supply())
-        time.sleep(10)
+        time.sleep(8)
 
 
 def take_scr_minerals() -> Union[Image.Image, None]:
@@ -29,7 +29,6 @@ def take_scr_minerals() -> Union[Image.Image, None]:
     minerals = screenshot('minerals.png', region=(1560, 21, 70, 16))
     # could use this for debug:
     # minerals.show(title=None)
-    # return minerals
 
 
 def take_scr_gas() -> Union[Image.Image, None]:
@@ -102,34 +101,37 @@ def recognize_supply(supply_img='supply.png') -> Union[int, str]:
 
 
 def yell_minerals(mineral) -> None:
-    # yells at user if condition is met (too many minerals, low supply...)
+    """yells at user if condition is met (too many minerals, low supply...)"""
     if mineral == 'failed to recognize number':
         print('failed to recognize number')
         pass
     elif mineral > 1000:
-        print('too many minerals')
+        # print('too many minerals')
+        winsound.PlaySound('sounds/yell_minerals_rus.wav', winsound.SND_FILENAME)
 
 
 def yell_gas(gas) -> None:
-    # yells at user if condition is met (too many minerals, low supply...)
+    """yells at user if condition is met (too many minerals, low supply...)"""
     if gas == 'failed to recognize number':
         print('failed to recognize number')
         pass
-    elif gas > 500:
-        print('too much gas')
+    elif gas > 600:
+        # print('too much gas')
+        winsound.PlaySound('sounds/yell_gas_rus.wav', winsound.SND_FILENAME)
 
 
 def yell_supply(supply) -> None:
-    # yells at user if condition is met (too many minerals, low supply...)
+    """yells at user if condition is met (too many minerals, low supply...)"""
     if supply == 'failed to recognize number':
-        print('failed to recognize number')
+        # print('failed to recognize number')
         pass
     else:
         current_supply, max_supply = supply.split('/')
         print(current_supply, max_supply)
         fraction = float(current_supply) / float(max_supply)
-        if fraction > 0.8 and max_supply < 200:
-            print('build more supply depos')
+        if fraction > 0.8 and int(max_supply) < 200:
+            # print('build more supply depos')
+            winsound.PlaySound('sounds/yell_supply_rus.wav', winsound.SND_FILENAME)
 
 
 if __name__ == '__main__':
