@@ -13,10 +13,10 @@ def main() -> None:
         scr_minerals = take_scr_minerals()
         scr_gas = take_scr_gas()
         scr_supply = take_scr_supply()
+        yell_supply(recognize_supply())
         yell_minerals(recognize_minerals())
         yell_gas(recognize_gas())
-        yell_supply(recognize_supply())
-        time.sleep(8)
+        time.sleep(1)
 
 
 def take_scr_minerals() -> Union[Image.Image, None]:
@@ -128,10 +128,13 @@ def yell_supply(supply) -> None:
     else:
         current_supply, max_supply = supply.split('/')
         print(current_supply, max_supply)
-        fraction = float(current_supply) / float(max_supply)
-        if fraction > 0.8 and int(max_supply) < 200:
-            # print('build more supply depos')
-            winsound.PlaySound('sounds/yell_supply_rus.wav', winsound.SND_FILENAME)
+        try:
+            fraction = float(current_supply) / float(max_supply)
+            if fraction > 0.8 and int(max_supply) < 200:
+                # print('build more supply depos')
+                winsound.PlaySound('sounds/yell_supply_rus.wav', winsound.SND_FILENAME)
+        except ValueError:
+            pass
 
 
 if __name__ == '__main__':
