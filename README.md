@@ -10,7 +10,7 @@ SC2 Yeller takes screenshots and analyzes the information on them. The program p
 
 ## Compatability and warning
 Only tested on Windows 10.
-Was not tested during online match - be aware, that anti-cheat system may falsely suspect this program as a cheat.
+Was not tested during online match - be aware, that anti-cheat system may falsely suspect this program as a cheat. Recommended only for replays analysis or games against an AI.
 
 ## Author
 Resistor ([GitHub](https://github.com/Resistor-git/))
