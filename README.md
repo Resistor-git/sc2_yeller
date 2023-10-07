@@ -4,4 +4,4 @@ The program plays an audio message if you have too many resources or do not use 
 
 To start the program:
 - open the folder containing 'main.py' in your terminal
-- run using command `py main.py`
+- run using command `py main.py` (Windows) or `python3 main.py` (Linux)
