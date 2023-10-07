@@ -1,5 +1,5 @@
 # sc2_yeller
-Yells at you if you fail your macro in Starcraft 2
+Yells at you if you fail your macro in Starcraft 2.
 
 ## To start the program:
 - open the folder containing 'main.py' in your terminal
